@@ -1,21 +1,33 @@
 import os
-os.system("clear")
-print("Starting....")
+
+def screen_clear():
+   if os.name == 'nt':
+   	os.system('cls')
+   else:
+   	os.system('clear')
+
+
+screen_clear()
+
+print("Starting....\n")
+import time
 import cv2
 import face_recognition
 import numpy
-print("Library imported Successfully")
+print("Dependecies imported Successfully")
 
 print("Initializing Camera")
 cap = cv2.VideoCapture(0)
 print("Camera Initialized Successfully")
-
+time.sleep(2)
 knownFaces = []
 knownNames = []
 
 while True:
-	n = int(input("\n\nPress 1 to Detect\nPress 2 to Register\nEnter Your choice : "))
-	if n == 1:
+	screen_clear()
+	print ("\n\n\t\t\tSMART SURVEILLANCE SYSTEM")
+	n = input("\n\n[Press  1] To Start SURVEILLANCE\n[Press  2] To Register new Face\n[Press 99] To exit\n\n\nEnter Your choice : ")
+	if n == '1':
 		while  True:
 			success, img = cap.read()
 			locs = face_recognition.face_locations(img)
@@ -33,7 +45,7 @@ while True:
 			if cv2.waitKey(1) & 0xFF == ord('q'):
 				cv2.destroyWindow("Searching")
 				break;
-	elif n == 2:
+	elif n == '2':
 		name = input("Enter Your Name : ")
 		while True:
 			success, img = cap.read()
@@ -58,5 +70,11 @@ while True:
 			print(loc)
 		print(knownFaces)
 		print(knownNames)
+	elif n == '99':
+		screen_clear()
+		print("\n\n\n\t\t\t[Exting...]  ThankYou\n\n\n\n\n\n\n\n\n ")
+		exit()
 	else:
-		break
+		screen_clear()
+		print("\n\n\n\t\t\tWrong Choice")
+		time.sleep(2)
