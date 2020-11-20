@@ -8,17 +8,17 @@
 ## Installation
 
 1. Download the zip file and extract it
-  (or)
-  use command 
+> (or)
+> use command 
 ```bash
 git clone https://github.com/SurendiranS/Smart-Survilance-System.git
 ```
 2. Open Terminal in current folder and run the following command
-In Windows
+> In Windows
 ```bash
-python main.py
+py main.py
 ```
-In Linux \ Mac
+> In Linux \ Mac
 ```bash
 python3 main.py
 ```
